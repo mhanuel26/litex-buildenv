@@ -92,12 +92,12 @@ class _CRG(Module):
             )
         self.specials += Instance("IDELAYCTRL", i_REFCLK=ClockSignal("clk200"), i_RST=ic_reset)
 
-        # 25MHz clock for Ethernet
-        eth_clk = Signal()
-        self.specials += [
-            Instance("BUFR", p_BUFR_DIVIDE="4", i_CE=1, i_CLR=0, i_I=clk100, o_O=eth_clk),
-            Instance("BUFG", i_I=eth_clk, o_O=platform.request("eth_ref_clk")),
-        ]
+        # # 25MHz clock for Ethernet
+        # eth_clk = Signal()
+        # self.specials += [
+        #     Instance("BUFR", p_BUFR_DIVIDE="4", i_CE=1, i_CLR=0, i_I=clk100, o_O=eth_clk),
+        #     Instance("BUFG", i_I=eth_clk, o_O=platform.request("eth_ref_clk")),
+        # ]
 
 
 class BaseSoC(SoCSDRAM):
